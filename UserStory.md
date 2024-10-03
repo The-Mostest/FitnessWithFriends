@@ -48,3 +48,6 @@ This mobile-based fitness app allows users to log their workouts and engage with
 - Users can log their own workouts and view their training partners’ progress without altering anyone else’s entries.
 - The app integrates social elements by allowing users to comment on each other's workouts, encouraging support and accountability within the group.
 - The interface is card-based and user-friendly, with separate sections for strength exercises and cardio.
+
+
+## Strech Goals:
