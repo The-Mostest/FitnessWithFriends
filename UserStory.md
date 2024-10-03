@@ -17,6 +17,13 @@ This mobile-based fitness app allows users to log their workouts and engage with
     - Group Name (representing my training group)  
   I will log into my account and my 'group', which is a family-style system connecting me with my training partners. This system allows me to view my workouts as well as those of my group members. I can comment on their workouts, but I cannot modify any workout that isn’t my own.
 
+- **Sign Up Process**
+  Upon clicking the **Sign Up** button, I will be directed to a Sign Up form with the follow field:
+    - Username
+    - Email
+    - Password
+    - Confirm Password
+  The user is then redirected to the 'User Homepage'
 ## Features:
 
 - **Post-Login Navigation:**
