@@ -15,7 +15,8 @@ This mobile-based fitness app allows users to log their workouts and engage with
     - Username
     - Password
     - Group Name (representing my training group)  
-  I will log into my account and my 'group', which is a family-style system connecting me with my training partners. This system allows me to view my workouts as well as those of my group members. I can comment on their workouts, but I cannot modify any workout that isn’t my own.
+  I will log into my account and my 'group', which is a family-style system connecting me with my training partners.
+  This system allows me to view my workouts as well as those of my group members. I can comment on their workouts, but I cannot modify any workout that isn’t my own.
 
 - **Sign Up Process**
   Upon clicking the **Sign Up** button, I will be directed to a Sign Up form with the follow field:
@@ -58,3 +59,5 @@ This mobile-based fitness app allows users to log their workouts and engage with
 
 
 ## Strech Goals:
+- Updating the user profile
+- Adding the History tab to show the user the their previous workouts 
