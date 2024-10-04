@@ -4,6 +4,10 @@ const router = express.Router()
 
 
 
+// ! ===== model
+const User = require('../models/user.js')
+
+
 
 router.get('/', (req,res) => {
     try{
@@ -44,7 +48,7 @@ router.get('/sign-in', (req,res) => {
 
 // ! ===== Sign up
 
-// * Sign Up Render
+//* ===== Sign Up Render
 
 router.get('/sign-up', (req,res) => {
     try{
@@ -56,7 +60,18 @@ router.get('/sign-up', (req,res) => {
 }
 })
 
+//* ===== Sign up Post
+//TODO      Search the Database to check the username is unique
+//TODO      If it isn't already made, allow the process to continue
+//TODO      Check passwords match
+//TODO      Encrypt the passwords
+//TODO      Create User
+//TODO      req.session the details
+//TODO      Save the session and then redirect
 
+router.post('/sign-up', async (req,res) => {
+
+})
 
 
 
