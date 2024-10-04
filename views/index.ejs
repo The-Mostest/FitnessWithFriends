@@ -1,18 +1,18 @@
-<%- include("../views/partials/nav.ejs") %>
 <%- include("../views/partials/header.ejs") %>
+    <%- include("../views/partials/nav.ejs") %>
 
-<body>
-    <h1>Welcome to Fitness With Friends</h1>
-    <h3>The First app to allow YOU to share your workouts with your pals</h3>
+        <body>
+            <h1>Welcome to Fitness With Friends</h1>
+            <h3>The First app to allow YOU to share your workouts with your pals</h3>
 
 
-    <form action="" method="POST">
-        <button type="submit">Sign in</button>
-    </form>
-    <form action="" method="POST">
-        <button type="submit">Sign up</button>
-    </form>
+            <form action="auth/sign-in" method="GET">
+                <button type="submit">Sign in</button>
+            </form>
+            <form action="auth/sign-up" method="GET">
+                <button type="submit">Sign up</button>
+            </form>
 
-</body>
+        </body>
 
-</html>
+        </html>

@@ -16,6 +16,14 @@ router.get('/', (req,res) => {
 
 
 
+
+
+
+
+// ! ===== Sign in
+
+// * Sign In Render
+
 router.get('/sign-in', (req,res) => {
     try{
 
@@ -29,9 +37,18 @@ router.get('/sign-in', (req,res) => {
 
 
 
+
+
+
+
+
+// ! ===== Sign up
+
+// * Sign Up Render
+
 router.get('/sign-up', (req,res) => {
     try{
-        
+
         res.render('./auth/sign-up.ejs')
         
     }catch(error){

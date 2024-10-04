@@ -21,7 +21,6 @@ app.listen(port, () => {
 
 //! ===== Router Controllers
 const authRouters = require('./controllers/auth.js')
-app.use('/auth', authRouters)
 
 
 //! ===== Models
@@ -31,7 +30,9 @@ app.use('/auth', authRouters)
 
 
 //! ===== Middleware (app.use)
+app.use('/auth', authRouters)
 app.use(express.static('public'))
+app.use(express.urlencoded({extended: false}))
 
 
 
@@ -43,7 +44,6 @@ app.get('/', (req,res) => {
 }catch(error){
     res.send('This landing page is not working❌')
 }
-
 })
 
 
