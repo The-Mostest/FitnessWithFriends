@@ -8,7 +8,6 @@ mongoose.connection.on("connected", () => {
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const connectMongo = require('connect-mongo')
-const ejs = require('ejs')
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 const session = require('express-session')
