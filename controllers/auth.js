@@ -9,17 +9,6 @@ const User = require('../model/user.js')
 
 
 
-router.get('/', (req, res) => {
-    try {
-        res.send('User index it working')
-
-    } catch (error) {
-        res.send('This User index isnt working')
-    }
-})
-
-
-
 
 
 
@@ -39,7 +28,38 @@ router.get('/sign-in', (req, res) => {
 })
 
 
+//* Sign In POST
+router.post('/sign-in', async (req, res) => {
 
+    //TODO  Variable finding if user is in DB
+    const userExist = await User.findOne({ username: req.body.username })
+    //TODO If not there kick out
+    if (!userExist) {
+        return res.send('Incorrect Username or Password')
+    }
+    //TODO variable bcrypt comparesync (two things to compare)
+    const passwordExist = bcrypt.compareSync(
+        req.body.password,
+        userExist.password
+    )
+    //TODO If not there kick out
+    if (!passwordExist) {
+        return res.send('Incorrect Username or Password')
+    }
+
+    req.session.user = {
+        username: userExist.username,
+        _id: userExist._id
+    }
+
+    //TODO res redirect
+    req.session.save(() => {
+        res.redirect('/')
+    })
+
+
+
+})
 
 
 

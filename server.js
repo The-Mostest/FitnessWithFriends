@@ -17,6 +17,7 @@ const port = 3000
 //! ===== Imports
 const authRouters = require('./controllers/auth.js')
 const userEverywhere = require('./middleware/userEverywhere.js')
+const trainingRouters = require('./controllers/training.js')
 
 
 //! ===== Model
@@ -42,7 +43,7 @@ app.use(session({
 
 app.use('/auth', authRouters)
 app.use(userEverywhere)
-
+app.use('/training', trainingRouters)
 
 
 //! ===== Landing Page
