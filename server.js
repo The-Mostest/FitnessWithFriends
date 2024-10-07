@@ -1,5 +1,6 @@
 const dotenv = require('dotenv')
 dotenv.config()
+
 const mongoose = require('mongoose')
 
 const express = require('express')
@@ -18,7 +19,7 @@ const authRouters = require('./controllers/auth.js')
 const userEverywhere = require('./middleware/userEverywhere.js')
 
 
-//! ===== Models
+//! ===== Model
 
 
 
@@ -26,19 +27,20 @@ const userEverywhere = require('./middleware/userEverywhere.js')
 
 //! ===== Middleware (app.use)
 app.use(methodOverride('method'))
-app.use(morgan('dev'))
-app.use('/auth', authRouters)
-app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
+app.use(morgan('dev'))
+app.use(express.static('public'))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI
+        mongoUrl: process.env.MONGODB_URI,
     })
 }))
 
+
+app.use('/auth', authRouters)
 app.use(userEverywhere)
 
 
@@ -64,18 +66,18 @@ app.get('*', (req, res) => {
 
 const startServer = async () => {
     try {
-await mongoose.connect(process.env.MONGODB_URI)  
-app.listen(port, () => {
-    console.log(`${port} is working`)
-})
-} catch (error) {
-    console.log(error)
-    
-}
+
+        mongoose.connection.on("connected", () => {
+            console.log('Mongoose Is Connected on MongoDB')
+        })
+        await mongoose.connect(process.env.MONGODB_URI)
+        app.listen(port, () => {
+            console.log(`${port} is working`)
+        })
+    } catch (error) {
+        console.log(error)
+
+    }
 }
 
 startServer()
-
-mongoose.connection.on("connected", () => {
-    console.log('Mongoose Is Connected on MongoDB')
-})
