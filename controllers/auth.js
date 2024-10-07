@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const MongoStore = require('connect-mongo')
-
+const bcrypt = require('bcryptjs')
 
 
 
@@ -55,31 +55,17 @@ router.get('/sign-in', (req, res) => {
 router.get('/sign-up', (req, res) => {
     try {
 
-        res.render('./auth/sign-up.ejs')
+        res.render('auth/sign-up.ejs')
 
     } catch (error) {
         res.send('Sign Up isnt working')
     }
 })
 
-//* ===== Sign up Post
-//TODO      Search the Database to check the username is unique
-
-//TODO      If it isn't already made, allow the process to continue
-
-//TODO      Check passwords match
-
-//TODO      Encrypt the passwords
-
-//TODO      Create User
-
-//TODO      req.session the details
-
-//TODO      Save the session and then redirect
-
 
 router.post('/sign-up', async (req, res) => {
-
+    try {
+     
     const userInDB = await User.findOne({ username: req.body.username })
 
     if (userInDB) return res.send('This username already exists')
@@ -90,18 +76,22 @@ router.post('/sign-up', async (req, res) => {
     if (req.body.password !== req.body.confirmPassword) {
         return res.send('These passwords do not match')
     }
-    req.body.password = bcrypt.hasSync(req.body.password, 10)
+    req.body.password = bcrypt.hashSync(req.body.password, 10)
 
     const newUser = await User.create(req.body)
 
     req.session.user = {
         username: newUser.username,
-        email: newUser.email,
         _id: newUser._id
     }
+    console.log(req.body);
     req.session.save(() => {
         res.redirect('/')
     })
+}catch (error) {
+    console.log(error)
+    res.send('<h1>Sign up Not Working</h1>')
+}
 })
 
 
