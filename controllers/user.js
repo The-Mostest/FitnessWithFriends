@@ -30,6 +30,15 @@ router.get('/user-homepage', isSignedIn, async (req, res, next) => {
 
 
 //! ===== Training Log
+router.get('/training-log', isSignedIn, async (req, res, next) => {
+    try {
+        const user = await User.findById(req.session.user._id)
+        res.render('../views/trainingLog.ejs', {user: user})
+    } catch (error) {
+        console.log(error)
+        res.send('User homepage is not working')
+    }
+})
 
 
 
@@ -41,6 +50,15 @@ router.get('/user-homepage', isSignedIn, async (req, res, next) => {
 
 //! ===== Socials
 
+router.get('/socials', isSignedIn, async (req, res, next) => {
+    try {
+        const user = await User.findById(req.session.user._id)
+        res.render('../views/socials.ejs', {user: user})
+    } catch (error) {
+        console.log(error)
+        res.send('User homepage is not working')
+    }
+})
 
 
 
