@@ -4,6 +4,9 @@
         <body>
             <h1>Welcome to Fitness With Friends</h1>
             <h3>The First app to allow YOU to share your workouts with your pals</h3>
+            <% if (user) { %>
+                <h2>Hello <%=` ${user.username} `%></h2>
+            <% } %>
 
 
             <form action="auth/sign-in" method="GET">

@@ -9,13 +9,15 @@ This mobile-based fitness app allows users to log their workouts and engage with
     - An overview of the app and its features.
     - User experiences and testimonials.
     - A prominent **LOG IN** button for access.
+    - A prominent **SIGN UP** button for access.
 
 - **Login Process:**  
   Upon clicking the **LOG IN** button, I will be directed to a login form with the following fields:
     - Username
     - Password
-    - Group Name (representing my training group)  
-  I will log into my account and my 'group', which is a family-style system connecting me with my training partners.
+    - Group Name (representing my training group)
+      - (Stretch Goal)
+  I will log into my account and my ('group'), which is a family-style system connecting me with my training partners.
   This system allows me to view my workouts as well as those of my group members. I can comment on their workouts, but I cannot modify any workout that isn’t my own.
 
 - **Sign Up Process**

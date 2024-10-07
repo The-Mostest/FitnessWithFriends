@@ -7,7 +7,7 @@ mongoose.connection.on("connected", () => {
 })
 const express = require('express')
 const bcrypt = require('bcryptjs')
-const connectMongo = require('connect-mongo')
+const MongoStore = require('connect-mongo')
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 const session = require('express-session')
@@ -19,8 +19,9 @@ app.listen(port, () => {
 })
 
 
-//! ===== Router Controllers
+//! ===== Imports
 const authRouters = require('./controllers/auth.js')
+const userEverywhere = require('./middleware/userEverywhere.js')
 
 
 //! ===== Models
@@ -33,7 +34,15 @@ const authRouters = require('./controllers/auth.js')
 app.use('/auth', authRouters)
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: false}))
-
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+            mongoUrl: process.env.MONGODB_URI
+    })
+}))
+app.use(userEverywhere)
 
 
 //! ===== Landing Page
