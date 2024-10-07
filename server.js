@@ -18,9 +18,9 @@ const port = 3000
 const authRouters = require('./controllers/auth.js')
 const userRouters = require('./controllers/user.js')
 const userEverywhere = require('./middleware/userEverywhere.js')
+const isSignedIn = require('./middleware/isSignedIn.js')
 
 
-//! ===== Model
 
 
 
@@ -44,6 +44,7 @@ app.use(session({
 app.use('/auth', authRouters)
 app.use('/user', userRouters)
 app.use(userEverywhere)
+
 
 
 //! ===== Landing Page

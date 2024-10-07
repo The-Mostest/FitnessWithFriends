@@ -7,10 +7,15 @@ const router = express.Router()
 
 // ! ===== model
 const User = require('../model/user.js')
+const isSignedIn = require('../middleware/isSignedIn.js')
 
 
 
-router.get('/user-homepage', async (req, res) => {
+
+
+
+//! ===== User Homepage
+router.get('/user-homepage', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
         res.render('../views/user-homepage.ejs', {user: user})
@@ -20,6 +25,21 @@ router.get('/user-homepage', async (req, res) => {
     }
 })
 
+
+
+
+
+//! ===== Training Log
+
+
+
+
+
+
+
+
+
+//! ===== Socials
 
 
 

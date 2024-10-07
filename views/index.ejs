@@ -5,16 +5,17 @@
             <h1>Welcome to Fitness With Friends</h1>
             <h3>The First app to allow YOU to share your workouts with your pals</h3>
             <% if (user) { %>
-                <h2>Hello <%=user.username%></h2>
-            <% } %>
+                <h2>Hello <%=user.username%>
+                </h2>
+                <% } %>
 
 
-            <form action="auth/sign-in" method="GET">
-                <button type="submit">Sign in</button>
-            </form>
-            <form action="auth/sign-up" method="GET">
-                <button type="submit">Sign up</button>
-            </form>
+                    <form action="auth/sign-in" method="GET">
+                        <button type="submit">Sign in</button>
+                    </form>
+                    <form action="auth/sign-up" method="GET">
+                        <button type="submit">Sign up</button>
+                    </form>
 
         </body>
 
