@@ -8,6 +8,7 @@ const router = express.Router()
 // ! ===== model
 const User = require('../model/user.js')
 const isSignedIn = require('../middleware/isSignedIn.js')
+const addSets = require('../public/javascript/Functions.js')
 
 
 
@@ -33,6 +34,7 @@ router.get('/user-homepage', isSignedIn, async (req, res, next) => {
 router.get('/training-log', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
+
         res.render('../views/trainingLog.ejs', {user: user})
     } catch (error) {
         console.log(error)

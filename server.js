@@ -19,7 +19,7 @@ const authRouters = require('./controllers/auth.js')
 const userRouters = require('./controllers/user.js')
 const userEverywhere = require('./middleware/userEverywhere.js')
 const isSignedIn = require('./middleware/isSignedIn.js')
-
+const addSets = require('./public/javascript/Functions.js')
 
 
 
