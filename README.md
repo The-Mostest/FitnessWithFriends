@@ -74,4 +74,5 @@ The speed at which I've completed this project and how comfortable I was doing i
 1. Adding a 'history' tab to allow the user to look back at their workouts and see their progress
 2. creating 'CARDS' within the fitness logger section with transitions to allow vertical scrolling to be more interesting
 3. Adding a profile section with 'photos, PBs and favourite exercises'
-4. Allowing other users to view your profile 
+4. Allowing other users to view your profile
+5. Add Labels to the for input

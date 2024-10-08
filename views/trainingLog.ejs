@@ -5,27 +5,22 @@
         <h2>Hello <%=user.username%>
         </h2>
         <h3>Ready to smash a workout?</h3>
-        <div id="exerciseCard">
+       
             <div id="exerciseCont">
-                <form action="" method="POST" id="exerciseInfo">
-                    
-                    <input type="text" placeholder="Exercise Name" name="exercise" id="exercise">
-
-                    <!-- some form of for loop that adds to set everytime it clicks -->
-                    <input type="number" placeholder="sets" name="sets" id="sets">
-
-                    <input type="number" placeholder="reps" name="reps" id="reps">
-                    <input type="number" placeholder="load" name="load" id="load">
-
+                <form action="" method="POST" class="exercise">
+                    <input type="text" placeholder="Exercise Name" name="exerciseName" class="exerciseName">
+                    <input type="number" placeholder="sets" name="sets" class="SRL">
+                    <input type="number" placeholder="reps" name="reps"  class="SRL">
+                    <input type="number" placeholder="load" name="load"  class="SRL">
                 </form>
             </div>
-            <button type="button" id="addSet" onclick="addSets()">
+            <button type="button" id="addSet" onclick="newExercise()">
                 <h2>+</h2>
             </button>
-        </div>
-        <button id="addExercise" onclick="addCard()">ADD EXERCISE</button>
+      <button>SAVE</button>
 
 
+        <!-- <button id="addExercise" onclick="addCard()">ADD EXERCISE</button> -->
 
 
 
