@@ -7,6 +7,7 @@ const router = express.Router()
 
 // ! ===== model
 const User = require('../model/user.js')
+const Session = require('../model/session.js')
 const isSignedIn = require('../middleware/isSignedIn.js')
 const addSets = require('../public/javascript/Functions.js')
 
@@ -43,7 +44,17 @@ router.get('/training-log', isSignedIn, async (req, res, next) => {
 })
 
 
+router.post('/training-log', isSignedIn, async (req,res,next) => {
+    try {
+        req.body.user = req.session.user._id
 
+        const newSession = await Session.create(req.body)
+        console.log(req.body)
+
+    }catch (error) {
+        res.send('This post doesnt work')
+    }
+})
 
 
 

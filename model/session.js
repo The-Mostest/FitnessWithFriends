@@ -1,24 +1,45 @@
 const mongoose = require('mongoose')
 
 
-const sessionSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    }
+// * ===== Sub Exercise
+
+const exerciseSchema = new mongoose.Schema({
+    name: String,
+    reps: Number,
+    sets: Number,
+    load: Number,
 })
 
 
-const User = mongoose.model('User', userSchema)
+
+// * ===== Sub Comments
+
+const commentSchema = new mongoose.Schema({
+    text: String,
+    user: { type: mongoose.Types.ObjectId, ref: 'User' }
+},{
+    timestamps: true,
+})
 
 
-module.exports = User
+
+
+
+// * ===== Session Schema
+const sessionSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    }, 
+    exercises: [exerciseSchema],
+    notes: String,
+    comments: [commentSchema]
+},{
+    timestamps: true,
+})
+
+
+const Session = mongoose.model('Session', sessionSchema)
+
+
+module.exports = Session

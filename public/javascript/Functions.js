@@ -40,7 +40,7 @@ const newExercise = () => {
     const newForm = document.createElement('form');
     const div = document.getElementById('exerciseCont')
 
-    newForm.action = ''
+    newForm.action = '/user/training-log'
     newForm.method = 'POST'
     newForm.classList.add('exercise')
     
@@ -83,3 +83,13 @@ const newExercise = () => {
     // Append the new form to the form container
     div.append(newForm);
 }
+
+
+const submitAll = () => {
+
+    const forms = document.querySelectorAll('form')
+
+    forms.forEach((form) => {
+        form.submit
+    })
+    }
