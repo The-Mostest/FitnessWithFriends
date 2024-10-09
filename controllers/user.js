@@ -78,59 +78,6 @@ router.post('/sessions', isSignedIn, async (req, res, next) => {
 
 
 
-//* ===== Delete the sessions
-router.delete('/sessions/:sessionId', isSignedIn, async (req, res, next) => {
-    try {
-        const deletedSession = await Session.findById(req.params.sessionId)
-        if (deletedSession.user.equals(req.session.user._id)) {
-            await Session.findByIdAndDelete(req.params.sessionId)
-            return res.redirect('/user/index')
-        }
-    } catch (error) {
-        console.log(error)
-        res.send('DELETE IS NOT WORKING')
-    }
-})
-
-//* ===== Edit the session
-
-//? ===== Render Edit Page
-router.get('/sessions/:sessionId/edit', isSignedIn, async (req,res,next) => {
-
-    try {
-    const user = await User.findById(req.session.user._id)
-    const session = await Session.findById(req.params.sessionId)
-    
-    res.render('../views/sessions/edit.ejs', { user: user, session: session})
-}catch(error){
-    console.log(error)
-    res.send('EDIT IS NOT WORKING')
-}
-}) 
-
-
-
-
-//? ===== Edit Function
-
-router.put('/session/:sessionId', async (req,res,next) => {
-
-        const session = Session.findById(req.params.sessionId)
-        
-        const exercise = session.exercises.id(req.params.sessionId)
-
-        // await Session.findByIdAndUpdate(req.params.sessionId, req.body)
-
-    res.redirect('/user/index')
-})
-
-
-
-
-
-
-
-
 //! ===== Socials
 
 //* ===== Render the socials
@@ -160,3 +107,70 @@ router.get('/index', isSignedIn, async (req, res, next) => {
 
 
 module.exports = router
+
+//* ===== Delete the sessions
+router.delete('/sessions/:sessionId', isSignedIn, async (req, res, next) => {
+    try {
+        const deletedSession = await Session.findById(req.params.sessionId)
+        if (deletedSession.user.equals(req.session.user._id)) {
+            await Session.findByIdAndDelete(req.params.sessionId)
+            return res.redirect('/user/index')
+        }
+    } catch (error) {
+        console.log(error)
+        res.send('DELETE IS NOT WORKING')
+    }
+})
+
+//* ===== Edit the session
+
+//? ===== Render Edit Page
+router.get('/sessions/:sessionId/edit', isSignedIn, async (req, res, next) => {
+
+    try {
+
+        const user = await User.findById(req.session.user._id)
+        const session = await Session.findById(req.params.sessionId)
+
+        res.render('../views/sessions/edit.ejs', { user: user, session: session })
+    } catch (error) {
+        console.log(error)
+        res.send('EDIT IS NOT WORKING')
+    }
+})
+
+
+
+
+//? ===== Edit Function
+
+router.put('/session/:sessionId', async (req, res, next) => {
+
+    try {
+
+        const session = await Session.findById(req.params.sessionId)
+        console.log(session)
+        console.log(req.body)
+
+
+        Session.findByAndUpdate(req.body)
+
+
+
+
+        res.redirect('/user/index')
+    } catch (error) {
+        console.log(error)
+        res.send('EDIT IS NOT WORKING')
+    }
+
+
+
+
+})
+
+
+
+
+
+
