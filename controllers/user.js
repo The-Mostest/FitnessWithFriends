@@ -79,9 +79,7 @@ router.post('/sessions', isSignedIn, async (req, res, next) => {
         const newSession = await Session.create(req.body)
 
 
-        console.log(newSession)
-
-        res.redirect('/sessions')
+        res.redirect('/')
 
     } catch (error) {
         console.log(error)
@@ -99,10 +97,13 @@ router.post('/sessions', isSignedIn, async (req, res, next) => {
 router.get('/index', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
-        res.render('../views/sessions/index.ejs', { user: user })
+
+        const allSessions = await Session.find()
+        console.log(allSessions)
+        res.render('../views/sessions/index.ejs', { user: user, allSessions: allSessions})
     } catch (error) {
         console.log(error)
-        res.send('User homepage is not working')
+        res.send('Socials is not working')
     }
 })
 

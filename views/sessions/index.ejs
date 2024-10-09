@@ -2,17 +2,56 @@
     <%- include("../partials/nav.ejs") %>
 
         <h1> SOCIALS</h1>
-        <h2>Hello <%=user.username%></h2>
+        <h2>Hello <%=user.username%>
+        </h2>
+        <br>
+
+        <div class="socialDisplay">
+
+            
+            
+            <% allSessions.forEach(session=> { %>
+                <% session.user %>
+                <% session.exercises.forEach(element=> { %>
+                    <ul id="ul">
+                        <li>
+                            <%=element.name%>
+                        </li>
+                        <li>
+                            <%=element.sets%>
+                        </li>
+                        <li>
+                            <%=element.reps%>
+                        </li>
+                        <li>
+                            <%=element.load%>
+                        </li>
+
+                    </ul>
+                        <% }) %>
+                        <% }) %>
+                        
+                        
+                        
+                        <!-- <table>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets</th>
+                                <th>Reps</th>
+                                <th>Load</th>
+                            </tr>
+                            <tr>
+            
+                            </tr>
+                        </table> -->
+
+        </div>
 
 
 
 
 
 
+                        </body>
 
-
-
-
-        </body>
-
-        </html>
+                        </html>

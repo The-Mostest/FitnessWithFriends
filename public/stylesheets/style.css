@@ -22,3 +22,10 @@ h1 {
 .SRL {
     width: 30px;
 }
+
+#ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
