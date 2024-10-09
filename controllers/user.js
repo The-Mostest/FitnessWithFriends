@@ -46,10 +46,16 @@ router.get('/training-log', isSignedIn, async (req, res, next) => {
 
 router.post('/training-log', isSignedIn, async (req,res,next) => {
     try {
+        // Link the session to the user
         req.body.user = req.session.user._id
 
         const newSession = await Session.create(req.body)
+
+
         console.log(req.body)
+
+        // res.redirect('/user/user-homepage')
+        
 
     }catch (error) {
         res.send('This post doesnt work')

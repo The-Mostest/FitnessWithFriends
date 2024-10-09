@@ -37,12 +37,13 @@ const newExercise = () => {
 
 
     // Create a new form element
-    const newForm = document.createElement('form');
+    const newDiv = document.createElement('div');
     const div = document.getElementById('exerciseCont')
+    const form = document.getElementById('trainingForm')
 
-    newForm.action = '/user/training-log'
-    newForm.method = 'POST'
-    newForm.classList.add('exercise')
+    // newDiv.action = '/user/training-log'
+    // newDiv.method = 'POST'
+    // newDiv.classList.add('exercise')
     
     // Create an input field with a unique ID
     const inputName = document.createElement('input');
@@ -73,15 +74,16 @@ const newExercise = () => {
 
 
     // Append the input and submit button to the form
-    newForm.appendChild(inputName);
-    newForm.appendChild(inputSets);
-    newForm.appendChild(inputReps);
-    newForm.appendChild(inputLoad);
+
+    form.appendChild(inputName);
+    form.appendChild(inputSets);
+    form.appendChild(inputReps);
+    form.appendChild(inputLoad);
 
 
 
     // Append the new form to the form container
-    div.append(newForm);
+    div.append(form);
 }
 
 
@@ -90,6 +92,6 @@ const submitAll = () => {
     const forms = document.querySelectorAll('form')
 
     forms.forEach((form) => {
-        form.submit
+        form.submit()
     })
     }
