@@ -16,47 +16,50 @@ const addSets = require('../public/javascript/Functions.js')
 
 
 
-//! ===== User Homepage
-router.get('/user-homepage', isSignedIn, async (req, res, next) => {
-    try {
-        const user = await User.findById(req.session.user._id)
-        res.render('../views/user-homepage.ejs', {user: user})
-    } catch (error) {
-        console.log(error)
-        res.send('User homepage is not working')
-    }
-})
+// //! ===== User Homepage
+// router.get('/user-homepage', isSignedIn, async (req, res, next) => {
+//     try {
+//         const user = await User.findById(req.session.user._id)
+//         res.render('../views/user-homepage.ejs', {user: user})
+//     } catch (error) {
+//         console.log(error)
+//         res.send('User homepage is not working')
+//     }
+// })
 
 
 
 
 
 //! ===== Training Log
-router.get('/training-log', isSignedIn, async (req, res, next) => {
+router.get('/sessions', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
 
-        res.render('../views/trainingLog.ejs', {user: user})
+        res.render('../views/sessions/new.ejs', {user: user})
     } catch (error) {
         console.log(error)
-        res.send('User homepage is not working')
+        res.send('Training is not working')
     }
 })
 
 
-router.post('/training-log', isSignedIn, async (req,res,next) => {
+// Create Session
+
+router.post('/sessions', isSignedIn, async (req,res,next) => {
     try {
         // Link the session to the user
         req.body.user = req.session.user._id
 
-        const newSession = await Session.create(req.body)
+        const newSession = new Session()
+
+        newSession.exercises.push(req.body)
 
 
         console.log(req.body)
-
-        // res.redirect('/user/user-homepage')
+        await newSession.save()
         
-
+        // res.redirect('')
     }catch (error) {
         res.send('This post doesnt work')
     }
@@ -69,10 +72,10 @@ router.post('/training-log', isSignedIn, async (req,res,next) => {
 
 //! ===== Socials
 
-router.get('/socials', isSignedIn, async (req, res, next) => {
+router.get('/index', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
-        res.render('../views/socials.ejs', {user: user})
+        res.render('../views/sessions/index.ejs', {user: user})
     } catch (error) {
         console.log(error)
         res.send('User homepage is not working')

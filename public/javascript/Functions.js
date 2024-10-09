@@ -85,13 +85,3 @@ const newExercise = () => {
     // Append the new form to the form container
     div.append(form);
 }
-
-
-const submitAll = () => {
-
-    const forms = document.querySelectorAll('form')
-
-    forms.forEach((form) => {
-        form.submit()
-    })
-    }

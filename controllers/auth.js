@@ -53,7 +53,7 @@ router.post('/sign-in', async (req, res) => {
         _id: userExist._id
     }
     req.session.save(() => {
-        res.redirect('/user/user-homepage')
+        res.redirect('/')
     })
 
 
@@ -105,7 +105,7 @@ router.post('/sign-up', async (req, res) => {
         }
 
         req.session.save(() => {
-            res.redirect('/user/user-homepage')
+            res.redirect('/')
         })
     } catch (error) {
         console.log(error)

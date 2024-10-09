@@ -51,7 +51,11 @@ app.use(userEverywhere)
 
 app.get('/', (req, res) => {
     try {
-        res.render('index.ejs')
+        if( req.session.user) {
+            res.render('user-homepage.ejs')
+        } else {
+            res.render('index.ejs')
+        }
     } catch (error) {
         res.send('This landing page is not working❌')
     }

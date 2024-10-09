@@ -1,5 +1,5 @@
-<%- include("../views/partials/header.ejs") %>
-    <%- include("../views/partials/nav.ejs") %>
+<%- include("../partials/header.ejs") %>
+    <%- include("../partials/nav.ejs") %>
 
         <h1> TRAINING</h1>
         <h2>Hello <%=user.username%>
@@ -7,8 +7,8 @@
         <h3>Ready to smash a workout?</h3>
        
             <div id="exerciseCont">
-                <form action="/user/training-log" method="POST" class="exercise" id="trainingForm">
-                    <input type="text" placeholder="Exercise Name" name="exerciseName" class="exerciseName">
+                <form action="/user/sessions" method="POST" class="exercise" id="trainingForm">
+                    <input type="text" placeholder="Exercise Name" name="name" class="exerciseName">
                     <input type="number" placeholder="sets" name="sets" class="SRL">
                     <input type="number" placeholder="reps" name="reps"  class="SRL">
                     <input type="number" placeholder="load" name="load"  class="SRL">
