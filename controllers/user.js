@@ -90,17 +90,35 @@ router.post('/sessions', isSignedIn, async (req, res, next) => {
 
 
 
+//* ===== Delete the sessions
+router.delete('/sessions/:sessionId', isSignedIn, async (req, res, next) => {
+    try {
+        const deletedSession = await Session.findById(req.params.sessionId)
+        if (deletedSession.user.equals(req.session.user._id)) {
+            await Session.findByIdAndDelete(req.params.sessionId)
+            return res.redirect('/index')
+        }
+    } catch (error) {
+        console.log(error)
+        res.send('DELETE IS NOT WORKING')
+    }
+})
+
+
 
 
 //! ===== Socials
+
+//* ===== Render the socials
 
 router.get('/index', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
 
-        const allSessions = await Session.find()
-        console.log(allSessions)
-        res.render('../views/sessions/index.ejs', { user: user, allSessions: allSessions})
+
+        const allSessions = await Session.find().populate('user')
+
+        res.render('../views/sessions/index.ejs', { user: user, allSessions: allSessions })
     } catch (error) {
         console.log(error)
         res.send('Socials is not working')
@@ -109,6 +127,9 @@ router.get('/index', isSignedIn, async (req, res, next) => {
 
 
 
+
+
+//* ===== Edit the socials
 
 
 

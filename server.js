@@ -37,6 +37,7 @@ app.use(session({
     saveUninitialized: true,
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI,
+        collectionName: 'authSessions'
     })
 }))
 

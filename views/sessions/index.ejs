@@ -7,44 +7,45 @@
         <br>
 
         <div class="socialDisplay">
-
-            
-            
             <% allSessions.forEach(session=> { %>
-                <% session.user %>
-                <% session.exercises.forEach(element=> { %>
-                    <ul id="ul">
-                        <li>
-                            <%=element.name%>
-                        </li>
-                        <li>
-                            <%=element.sets%>
-                        </li>
-                        <li>
-                            <%=element.reps%>
-                        </li>
-                        <li>
-                            <%=element.load%>
-                        </li>
+                <div class="socialsDiv">
+                    <h3>
+                        <%= session.user.username %>
+                    </h3>
 
-                    </ul>
-                        <% }) %>
-                        <% }) %>
-                        
-                        
-                        
-                        <!-- <table>
+                    <table>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Load</th>
+                        </tr>
+                        <% session.exercises.forEach(element=> { %>
                             <tr>
-                                <th>Exercise</th>
-                                <th>Sets</th>
-                                <th>Reps</th>
-                                <th>Load</th>
+                                <td>
+                                    <%=element.name%>
+                                </td>
+                                <td>
+                                    <%=element.sets%>
+                                </td>
+                                <td>
+                                    <%=element.reps%>
+                                </td>
+                                <td>
+                                    <%=element.load%>
+                                </td>
                             </tr>
-                            <tr>
-            
-                            </tr>
-                        </table> -->
+                            <% }) %>
+                    </table>
+                    <% if (user && session.user._id.equals(user._id)) { %>
 
+                        <form action="/user/sessions/<%=session._id%>?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <% } %>
+
+                </div>
+                <% }) %>
         </div>
 
 
@@ -52,6 +53,6 @@
 
 
 
-                        </body>
+        </body>
 
-                        </html>
+        </html>

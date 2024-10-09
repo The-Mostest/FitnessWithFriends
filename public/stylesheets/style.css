@@ -23,9 +23,24 @@ h1 {
     width: 30px;
 }
 
-#ul {
-    list-style-type: none;
+.socialDisplay {
     display: flex;
-    flex-direction: row;
-    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+/* .socialDisplay td {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+
+} */
+
+.socialsDiv {
+    align-content: space-evenly;
+    width: 50%;
+    border: 1px black solid;
+    margin-top: 40px;
+}
+
