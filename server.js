@@ -27,7 +27,7 @@ const addSets = require('./public/javascript/Functions.js')
 
 
 //! ===== Middleware (app.use)
-app.use(methodOverride('method'))
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 app.use(express.static('public'))

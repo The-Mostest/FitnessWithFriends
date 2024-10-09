@@ -1,0 +1,46 @@
+<%- include("../partials/header.ejs") %>
+    <%- include("../partials/nav.ejs") %>
+
+
+        <h1> Edit Page</h1>
+
+
+
+
+
+        <form action="/user/session/<%= session._id %>?_method=PUT" method="POST" id="editForm">
+            <% session.exercises.forEach((exercise, index)=> { %>
+                <div class="exerciseEdit">
+                    <label for="exerciseName<%= index %>">Exercise Name:</label>
+                    <input type="text" id="exerciseName<%= index %>" name="exercises[<%= index %>][name]"
+                        value="<%= exercise.name %>">
+
+                    <label for="sets<%= index %>">Sets:</label>
+                    <input type="number" id="sets<%= index %>" name="exercises[<%= index %>][sets]"
+                        value="<%= exercise.sets %>">
+
+                    <label for="reps<%= index %>">Reps:</label>
+                    <input type="number" id="reps<%= index %>" name="exercises[<%= index %>][reps]"
+                        value="<%= exercise.reps %>">
+
+                    <label for="load<%= index %>">Load:</label>
+                    <input type="number" id="load<%= index %>" name="exercises[<%= index %>][load]"
+                        value="<%= exercise.load %>">
+                </div>
+                <% }) %>
+
+                    <!-- <button type="button" id="addSet" onclick="newExerciseEdit()">
+                        <h3>New Exercise</h3>
+                    </button>
+                     -->
+                    <button type="submit" form="editForm">
+                        <h3>Save Workout</h3>
+                    </button>
+
+
+
+
+
+                    </body>
+
+                    </html>

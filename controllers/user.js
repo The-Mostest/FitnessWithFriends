@@ -16,18 +16,6 @@ const addSets = require('../public/javascript/Functions.js')
 
 
 
-// //! ===== User Homepage
-// router.get('/user-homepage', isSignedIn, async (req, res, next) => {
-//     try {
-//         const user = await User.findById(req.session.user._id)
-//         res.render('../views/user-homepage.ejs', {user: user})
-//     } catch (error) {
-//         console.log(error)
-//         res.send('User homepage is not working')
-//     }
-// })
-
-
 
 
 
@@ -96,13 +84,49 @@ router.delete('/sessions/:sessionId', isSignedIn, async (req, res, next) => {
         const deletedSession = await Session.findById(req.params.sessionId)
         if (deletedSession.user.equals(req.session.user._id)) {
             await Session.findByIdAndDelete(req.params.sessionId)
-            return res.redirect('/index')
+            return res.redirect('/user/index')
         }
     } catch (error) {
         console.log(error)
         res.send('DELETE IS NOT WORKING')
     }
 })
+
+//* ===== Edit the session
+
+//? ===== Render Edit Page
+router.get('/sessions/:sessionId/edit', isSignedIn, async (req,res,next) => {
+
+    try {
+    const user = await User.findById(req.session.user._id)
+    const session = await Session.findById(req.params.sessionId)
+    
+    res.render('../views/sessions/edit.ejs', { user: user, session: session})
+}catch(error){
+    console.log(error)
+    res.send('EDIT IS NOT WORKING')
+}
+}) 
+
+
+
+
+//? ===== Edit Function
+
+router.put('/session/:sessionId', async (req,res,next) => {
+
+        const session = Session.findById(req.params.sessionId)
+        
+        const exercise = session.exercises.id(req.params.sessionId)
+
+        // await Session.findByIdAndUpdate(req.params.sessionId, req.body)
+
+    res.redirect('/user/index')
+})
+
+
+
+
 
 
 
@@ -129,7 +153,9 @@ router.get('/index', isSignedIn, async (req, res, next) => {
 
 
 
-//* ===== Edit the socials
+
+
+
 
 
 
