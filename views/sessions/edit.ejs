@@ -8,7 +8,7 @@
 
 
 
-        <form action="/user/session/<%= session._id %>?_method=PUT" method="POST" id="editForm">
+        <form action="/user/sessions/<%= session._id %>?_method=PUT" method="POST" id="editForm">
             <% session.exercises.forEach((exercise, index)=> { %>
                 <div class="exerciseEdit">
                     <input type="text" name="name" value="<%= exercise.name %>">

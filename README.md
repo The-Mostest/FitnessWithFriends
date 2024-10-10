@@ -42,31 +42,34 @@ These include; Following RESTful routing conventions, using full CRUD, error han
 
 ## Planning
 ![A layed out Kanban plan of the project](/public/Images/Notion%20Planning.png)
-    For this project I ended up planning extensivly behind the scene to allow a seamless coding experienceI.
+    For this project I ended up planning extensively behind the scene to allow a seamless coding experienceI.
     I found this process extremely useful as it allows me to visualise the code and understand the process.
 
 ## Build Process
     - Initially I planned the structure of the code with Wireframes, ERDs, Routing Tables and the User Story
     - I then built the homepage along with the buttons to sign in or sign up
         - I also created a nav bar that would not be present in the finial rendering of the code but to help me navigate while building the app
-    - Then I procceded to create the model for the user
+    - Then I proceed to create the model for the user
     - Then onto the sign up process. Ensure the model details would be unique and not match any previous users
         - I redirected the  users to the homepage for now
     - Then I created the sign in page. Checking if the user exists and the password matches the user
         - Redirected to homepage
     - I then built the 'user homepage'. This is the area the user is redirected to after login which show the possible routes the user could go
     - I adjusted the redirecting to the user homepage
-    - Then I created the fitness logger section of the app. Rendering the homepage and then developing the logic
-        -LOGIC
+    - Rendering my 'fitness logger' section of the app(new.ejs) I created a starting set of fields for the user to see upon loading the page.
+    - The user will be presented with 4 fields to write their workouts in - one button as a '+' to add more field inputs to add more exercises - a button labelled 'SAVE WORKOUT'
+    - To add more fields I had to run a function and link the pages to a Javascript file in the Public folder and then link it to a button.
+    - Then onto the 'social page' (Index.ejs). This route is going to have each workout pushed to this file and rendered in a column style to allow users to scroll down and see other peoples sessions.
+    - 
 
 ## Challenges
 - Having the middleware in the wrong order which didn't allow me to define a user on an .ejs file
 - Linking the nav bar to the pages was more of a pain than a struggle as I had the paths wrong
 - Creating the middleware to access the user details in alternative controllers
-- A HUGE challenge I faced was getting the edit function to work. This was due to the fact that I was attempting to update a Sub Document, not the model itself.
+- A HUGE challenge I faced was getting the edit function to work. This was due to the fact that I was attempting to update a Sub Document, not the model itself (this was a 2am finisher..)
 
 ## Wins
-The speed at which I've completed this project and how comfortable I was doing it
+The speed at which I've completed this projects MVP and how much LESS stressed I've been completing it
 
 ## Bugs
     What bugs are currently present that someone else might be able to debug

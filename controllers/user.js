@@ -88,7 +88,7 @@ router.get('/index', isSignedIn, async (req, res, next) => {
     try {
         const user = await User.findById(req.session.user._id)
 
-
+        
         const allSessions = await Session.find().populate('user')
 
         res.render('../views/sessions/index.ejs', { user: user, allSessions: allSessions })
@@ -146,20 +146,41 @@ router.get('/sessions/:sessionId/edit', isSignedIn, async (req, res, next) => {
 
 //? ===== Edit Function
 
-router.put('/session/:sessionId', async (req, res, next) => {
+router.put('/sessions/:sessionId', async (req, res, next) => {
 
     try {
-
-        const sessionToEdit = await Session.findById(req.params.sessionId)
-        // const updatedSession = await Session.findByIdAndUpdate(req.params.sessionId, req.body)
+        if (Array.isArray(req.body.name)) {
+            req.body = {
+                exercises: req.body.name.map((name, idx) => {
+                    return {
+                        name: name,
+                        reps: req.body.reps[idx],
+                        sets: req.body.sets[idx],
+                        load: req.body.load[idx]
+                    }
+                })
+            }
+        } else {
+            req.body = {
+                exercises: [{
+                    name: req.body.name,
+                    reps: req.body.reps,
+                    sets: req.body.sets,
+                    load: req.body.load
+                }]
+            }
+        }
         
-        sessionToEdit.exercises.push(req.body)
-        res.redirect('/user/index')
+        const toUpdate = await Session.findByIdAndUpdate(
+            req.params.sessionId,
+            {$set: req.body}
+        )
 
-        await sessionToEdit.save()
+
+
+        console.log(toUpdate)
         console.log(req.body)
-
-
+        return res.redirect(`/user/index`)
     } catch (error) {
         console.log(error)
         res.send('EDIT IS NOT WORKING')
@@ -171,3 +192,17 @@ router.put('/session/:sessionId', async (req, res, next) => {
 
 
 
+
+
+
+// const sessionToEdit = await Session.findById(req.params.sessionId)
+// // const updatedSession = await Session.findByIdAndUpdate(req.params.sessionId, req.body)
+// // const exercisesToUpdate = await sessionToEdit.exercises.id
+
+
+// console.log(req.body)
+// sessionToEdit.exercises.push(req.body)
+
+// await sessionToEdit.save()
+
+// res.redirect('/user/index')
