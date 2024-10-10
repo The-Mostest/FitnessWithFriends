@@ -63,6 +63,7 @@ These include; Following RESTful routing conventions, using full CRUD, error han
 - Having the middleware in the wrong order which didn't allow me to define a user on an .ejs file
 - Linking the nav bar to the pages was more of a pain than a struggle as I had the paths wrong
 - Creating the middleware to access the user details in alternative controllers
+- A HUGE challenge I faced was getting the edit function to work. This was due to the fact that I was attempting to update a Sub Document, not the model itself.
 
 ## Wins
 The speed at which I've completed this project and how comfortable I was doing it
