@@ -8,8 +8,10 @@ const router = express.Router()
 // ! ===== model
 const User = require('../model/user.js')
 const Session = require('../model/session.js')
+const Exercises = require('../model/session.js')
 const isSignedIn = require('../middleware/isSignedIn.js')
 const addSets = require('../public/javascript/Functions.js')
+const session = require('express-session')
 
 
 
@@ -148,25 +150,20 @@ router.put('/session/:sessionId', async (req, res, next) => {
 
     try {
 
-        const session = await Session.findById(req.params.sessionId)
-        console.log(session)
+        const sessionToEdit = await Session.findById(req.params.sessionId)
+        // const updatedSession = await Session.findByIdAndUpdate(req.params.sessionId, req.body)
+        
+        sessionToEdit.exercises.push(req.body)
+        res.redirect('/user/index')
+
+        await sessionToEdit.save()
         console.log(req.body)
 
 
-        Session.findByAndUpdate(req.body)
-
-
-
-
-        res.redirect('/user/index')
     } catch (error) {
         console.log(error)
         res.send('EDIT IS NOT WORKING')
     }
-
-
-
-
 })
 
 

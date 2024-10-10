@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 // * ===== Sub Exercise
 
 const exerciseSchema = new mongoose.Schema({
-    name: String,
-    reps: Number,
-    sets: Number,
-    load: Number,
+    name: {type: String, required: true},
+    reps: {type: Number, required: true},
+    sets: {type: Number, required: true},
+    load: {type: Number, required: true},
 })
 
 
@@ -40,6 +40,9 @@ const sessionSchema = new mongoose.Schema({
 
 
 const Session = mongoose.model('Session', sessionSchema)
+// const Exercises = mongoose.model('Exercises',exerciseSchema)
+
 
 
 module.exports = Session
+// module.exports = Exercises

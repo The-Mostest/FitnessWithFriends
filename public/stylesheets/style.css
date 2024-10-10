@@ -38,9 +38,18 @@ h1 {
 } */
 
 .socialsDiv {
-    align-content: space-evenly;
-    width: 50%;
+    display: flex;
+    align-items: center;
+
+    width: 60%;
     border: 1px black solid;
     margin-top: 40px;
+    padding: 10px;
+    flex-direction: column;
 }
 
+table {
+    width: 75%;
+
+
+}
