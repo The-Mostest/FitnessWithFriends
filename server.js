@@ -31,7 +31,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 app.use(express.static('public'))
-app.use(express.json())
+app.use('/images', express.static('images'))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
