@@ -1,22 +1,61 @@
 <%- include("../views/partials/header.ejs") %>
     <%- include("../views/partials/nav.ejs") %>
 
-        <body>
-            <h1>Welcome to Fitness With Friends</h1>
-            <h3>The First app to allow YOU to share your workouts with your pals</h3>
-            <% if (user) { %>
-                <h2>Hello <%=user.username%>
-                </h2>
-                <% } %>
+        <body id="backgroundImg">
+            <div id="divBackground">
 
-
-                    <form action="auth/sign-in" method="GET">
-                        <button type="submit">Sign in</button>
-                    </form>
-                    <form action="auth/sign-up" method="GET">
-                        <button type="submit">Sign up</button>
-                    </form>
-
+                <div class="flexContainer">
+                    
+                    <h1>Welcome to Fitness With Friends</h1>
+                    <h3>The First app to allow YOU to share your workouts with your pals</h3>
+                    <% if (user) { %>
+                        <h2>Hello <%=user.username%>
+                        </h2>
+                        <% } %>
+                        
+                        
+                        <form action="auth/sign-in" method="GET">
+                            <button type="submit" class="landingButton">Sign in</button>
+                        </form>
+                        <form action="auth/sign-up" method="GET">
+                            <button type="submit" class="landingButton">Sign up</button>
+                        </form>
+                        
+                    </div>
+                    
+                    <div class="siteContent">
+                        <div class="siteText">
+                            
+                            <h2>A little about US!</h2>
+                            <p>
+                                At FitnessWithFriends, we believe that fitness should be fun, exciting, and filled with
+                                happiness! Our app combines the joy of staying active with the power of community, making every
+                                workout a chance to connect and grow. Whether you're just starting out or a seasoned pro,
+                                FitnessWithFriends keeps you motivated with a supportive group by your side, cheering you on
+                                every step of the way. Together, we celebrate milestones, push each other to new heights, and
+                                create lasting friendships. With FitnessWithFriends, fitness isn't just about getting
+                                stronger—it's about enjoying the journey with people who make it even more fun!
+                            </p>
+                        </div>
+                        <img src="./Images/socialExample.png" alt="A example of the social page within the app" id="socialExample">
+                    </div>
+                    
+                    <h1 class="tagline">Get Fit, Have Fun, Together!</h1>
+                    
+                    <div class="fitnessPhotos">
+                        <img src="./Images/fitnessCommunity.jpeg"
+                        alt="A picture of a group of friends after completing a workout, taking a photo"
+                        class="fitnessCommunity">
+                        <img src="./Images/fitnessYogaPose.jpeg"
+                        alt="A picture of a group of people doing a yoga pose in a studio" class="fitnessCommunity"
+                        id="yogaPose">
+                        <img src="./Images/fitnessWeights.jpg"
+                        alt="A picture of a female doing a deadlift and being cheered on by a person"
+                        class="fitnessCommunity" id="fitnessWeights">
+                        
+                    </div>
+                </div>
+                
         </body>
 
         </html>
