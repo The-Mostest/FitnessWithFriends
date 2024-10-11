@@ -1,8 +1,21 @@
+//! ===== Imports
+const serverless = require('serverless-http')
+
+const authRouters = require('../../controllers/auth.js')
+const userRouters = require('../../controllers/user.js')
+const userEverywhere = require('../../middleware/userEverywhere.js')
+const isSignedIn = require('../../middleware/isSignedIn.js')
+const addSets = require('../../public/javascript/Functions.js')
+
+
+
 const dotenv = require('dotenv')
 dotenv.config()
 
-const mongoose = require('mongoose')
 
+
+
+const mongoose = require('mongoose')
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const MongoStore = require('connect-mongo')
@@ -11,15 +24,6 @@ const morgan = require('morgan')
 const session = require('express-session')
 const app = express()
 const port = 3000
-
-
-
-//! ===== Imports
-const authRouters = require('./controllers/auth.js')
-const userRouters = require('./controllers/user.js')
-const userEverywhere = require('./middleware/userEverywhere.js')
-const isSignedIn = require('./middleware/isSignedIn.js')
-const addSets = require('./public/javascript/Functions.js')
 
 
 
@@ -78,14 +82,9 @@ app.get('*', (req, res) => {
 
 const startServer = async () => {
     try {
-
-        mongoose.connection.on("connected", () => {
-            console.log('Mongoose Is Connected on MongoDB')
-        })
         await mongoose.connect(process.env.MONGODB_URI)
-        app.listen(port, () => {
-            console.log(`${port} is working`)
-        })
+        console.log('Mongoose Is Connected on MongoDB')
+
     } catch (error) {
         console.log(error)
 
@@ -93,3 +92,5 @@ const startServer = async () => {
 }
 
 startServer()
+
+module.exports.handler = serverless(app)

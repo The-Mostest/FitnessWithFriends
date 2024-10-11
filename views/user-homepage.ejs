@@ -1,12 +1,16 @@
 <%- include("../views/partials/header.ejs") %>
     <%- include("../views/partials/nav.ejs") %>
 
+    <div class="headerText">
 
-    <h1 class="headerTitle"> USER HOMEPAGE</h1>
+    <h1> USER HOMEPAGE</h1>
 
+    </div>
     <div class="flexContainer" id="userHomepage">
 
         <h2>Hello <%=user.username%></h2>
+        <h3> And welcome to Fitness With Friends!</h3>
+        <p class="howToPara">Training consistently with a community keeps you motivated and accountable, making it easier to stick to your fitness goals. By sharing your progress, challenges, and victories with others, you'll stay encouraged and inspired to keep pushing forward together!</p>
         
         
         <form action="/user/sessions" method="GET" class="userForm">
@@ -17,11 +21,10 @@
             <button type="submit" class="landingButton">Socials</button>
         </form>
         
+        <p class="howToPara"> Use the 'Training' button to log your workout to let everyone know how you're training session is going!</p>
+        <p class="howToPara"> Then use the 'Socials' Button to look at your friends workout so you can support them and keep your community consistent</p>
         
-        
-        <!-- <form action="/auth/sign-out" method="GET" class="userForm">
-            <button type="submit" class="landingButton">Sign OUT</button>
-        </form> -->
+
     </div>
 
 </body>

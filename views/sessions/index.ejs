@@ -1,28 +1,33 @@
 <%- include("../partials/header.ejs") %>
     <%- include("../partials/nav.ejs") %>
+    <div class="everythingSocial">
+        <div class="headerText">
 
-        <h1> SOCIALS</h1>
-        <h2>Hello <%=user.username%>
-        </h2>
-        <br>
-
+            <h1> SOCIALS</h1>
+            <h2>Hey <%=user.username%>!</h2>
+            <h3>Here is what your pals have been up to</h3>
+            <p>Don't forget to support them and make sure they know you're proud of them!</p>
+            
+        </div>
         <div class="socialDisplay">
             <% allSessions.forEach(session=> { %>
+                <p class="sessionDetails">
+                    <strong><%= session.user.username %></strong>
+                    <small><%= new Date(session.createdAt).toUTCString() %></small>
+                </p>
                 <div class="socialsDiv">
-                    <h3>
-                        <%= session.user.username %>
-                    </h3>
+                   
 
                     <table>
                         <tr>
-                            <th>Exercise</th>
+                            <th id="tdName">Exercise</th>
                             <th>Sets</th>
                             <th>Reps</th>
                             <th>Load</th>
                         </tr>
                         <% session.exercises.forEach(element=> { %>
                             <tr>
-                                <td>
+                                <td id="tdName">
                                     <%=element.name%>
                                 </td>
                                 <td>
@@ -39,11 +44,11 @@
                     </table>
                     <% if (user && session.user._id.equals(user._id)) { %>
 
-                        <form action="/user/sessions/<%=session._id%>?_method=DELETE" method="POST">
+                        <form action="/user/sessions/<%=session._id%>?_method=DELETE" method="POST" id="deleteButton">
                             <button type="submit">Delete</button>
                         </form>
 
-                        <form action="/user/sessions/<%=session._id%>/edit" method="PUT">
+                        <form action="/user/sessions/<%=session._id%>/edit" method="PUT" id="editButton">
                             <button type="submit">Edit</button>
                         </form>
                         <% } %>

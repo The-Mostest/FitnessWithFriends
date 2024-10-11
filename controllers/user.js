@@ -146,7 +146,7 @@ router.get('/sessions/:sessionId/edit', isSignedIn, async (req, res, next) => {
 
 //? ===== Edit Function
 
-router.put('/sessions/:sessionId', async (req, res, next) => {
+router.put('/sessions/:sessionId', isSignedIn, async (req, res, next) => {
 
     try {
         if (Array.isArray(req.body.name)) {

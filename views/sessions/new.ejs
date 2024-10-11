@@ -1,14 +1,16 @@
 <%- include("../partials/header.ejs") %>
     <%- include("../partials/nav.ejs") %>
-
-        <h1 class="headerTitle"> TRAINING</h1>
+    <div class="headerText">
+        <h1 > TRAINING</h1>
         <div class="flexContainer">
-
+            
             <h2>Hello <%=user.username%>
             </h2>
             <h3>Ready to smash a workout?</h3>
+            <p> Fill out your training session here to show off to all your friends!</p>
             
         </div>
+    </div>
 
         <div id="exerciseCont">
             <form action="/user/sessions" method="POST" class="exercise" id="trainingForm">

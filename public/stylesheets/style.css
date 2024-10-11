@@ -106,6 +106,12 @@ nav img {
 
 
 
+.howToPara {
+    width:50%;
+
+    margin-top: 30px;
+}
+
 
 /* ==================== Sign In ====================  */
 
@@ -124,7 +130,7 @@ input {
 .headerTitle {
     display: flex;
     justify-content: center;
-    margin: 100px;
+    margin-top: 5%;
 }
 
 
@@ -147,7 +153,7 @@ input {
 }
 
 
-#trainingForm{
+#trainingForm {
     display: flex;
     width: 500px;
     flex-wrap: wrap;
@@ -169,16 +175,16 @@ input {
     justify-content: center;
     width: fit-content;
     flex-direction: column;
-    position:relative;
-    left: 50%; 
+    position: relative;
+    left: 50%;
     transform: translateX(-50%);
 
 }
 
 .trainingButtons button {
-        margin-top:40px;
-        padding: 5px;
-        height: 40px;
+    margin-top: 40px;
+    padding: 5px;
+    height: 40px;
 }
 
 #marginButton {
@@ -196,25 +202,84 @@ input {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 40px;
 }
 
 .socialsDiv {
     display: flex;
     align-items: center;
-
-    width: 60%;
     border: 1px black solid;
-    margin-top: 40px;
     padding: 10px;
     flex-direction: column;
+    width: 50%;
 }
 
 table {
     width: 75%;
-
-
+    text-align: center;
 }
 
+#tdName {
+    text-align: left;
+}
+
+.sessionDetails {
+    margin-top: 80px;
+}
+
+.sessionDetails strong {
+    position: relative;
+    right: 100px;
+}
+
+.sessionDetails small {
+    position: relative;
+    left: 100px;
+}
+
+
+#editButton {
+    position: relative;
+    left: 100px;
+    bottom: 15px;
+}
+
+#editButton button {
+    padding: 5px;
+}
+
+
+#deleteButton {
+    position: relative;
+    right: 100px;
+    top: 15px
+}
+
+#deleteButton button {
+    padding: 5px
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    row-gap: 10px;
+}
+.headerText h1 {
+    margin-bottom: 50px;
+}
+
+
+/* ==================== Edit ====================  */
+
+#editForm {
+    margin: 30px;
+}
+
+#editBut {
+    padding: 5px;
+}
 
 
 
@@ -342,7 +407,12 @@ table {
 
 
 
-
+    .howToPara {
+        margin-top: 50px;
+        width:80%;
+        text-align: justify;
+    }
+    
 
 
 
@@ -368,24 +438,54 @@ table {
     }
 
     .exerciseName {
-        width: 30%;
+        width: 30%; 
     }
 
     .SRL {
         width: 10%;
     }
 
-
-
-
-}
-
-
-
+    #editBut h3{
+        margin: 0;
+    }
 
 
     
+    
+    
+    
+    /* ==================== Socials ==================== */
+    .headerText {
+        text-align: center;
+    }
+    
+    .socialsDiv {
+        width: 90%;
+        margin-bottom: 5%;
+    }
+    
+    .socialsDiv table {
+        width: 80%;
+    }
 
-
-/* @media screen and (max-width: 500px;) {
-} */
+    .sessionDetails {
+        margin-top: 5%;
+    }
+    
+    .sessionDetails strong {
+        position: relative;
+        right: 70px;
+    }
+    
+    .sessionDetails small {
+        position: relative;
+        left: 70px;
+    }
+    
+    .everythingSocial {
+        height: 50%;
+        margin-bottom: 100px;
+    }
+    /* @media screen and (max-width: 500px;) {
+        } */
+        }
