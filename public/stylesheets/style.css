@@ -25,9 +25,10 @@ nav {
     width: 100%;
 }
 
-nav a{
-    height:50px;
+nav a {
+    height: 50px;
 }
+
 nav img {
     height: 50px;
 }
@@ -77,7 +78,7 @@ nav img {
 
 .tagline {
     display: flex;
-    margin-top: 100px;
+    margin-top: 50px;
     justify-content: center;
     font-size: 75px;
     font-weight: bolder;
@@ -105,6 +106,128 @@ nav img {
 
 
 
+
+/* ==================== Sign In ====================  */
+
+#signInFields label,
+input {
+    margin: 10px;
+    padding: 5px;
+}
+
+#signInFields input {
+    width: 20%;
+    height: 40px;
+    font-size: large;
+}
+
+.headerTitle {
+    display: flex;
+    justify-content: center;
+    margin: 100px;
+}
+
+
+
+/* ==================== User Homepage ====================  */
+
+.userForm {
+    margin: 20px;
+}
+
+
+
+
+/* ==================== Training Log ====================  */
+
+#exerciseCont {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+#trainingForm{
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#trainingForm input {
+    display: flex;
+    flex-direction: row;
+}
+
+.SRL {
+    width: 60px;
+}
+
+.trainingButtons {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    flex-direction: column;
+    position:relative;
+    left: 50%; 
+    transform: translateX(-50%);
+
+}
+
+.trainingButtons button {
+        margin-top:40px;
+        padding: 5px;
+        height: 40px;
+}
+
+#marginButton {
+    margin-bottom: 70px;
+}
+
+
+
+/* ==================== Socials ====================  */
+
+
+
+.socialDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.socialsDiv {
+    display: flex;
+    align-items: center;
+
+    width: 60%;
+    border: 1px black solid;
+    margin-top: 40px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+table {
+    width: 75%;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== MEDIA SCREEN ====================  */
+
+
 @media screen and (max-width: 850px) {
     body {
         height: 1vh;
@@ -115,15 +238,17 @@ nav img {
         display: none;
     }
 
-    /* #backgroundImg{
+    /* 
+    #backgroundImg {
         background-image: url('../Images/fitnessBikes.jpg');
-        background-size:cover;
+        background-size: cover;
         background-position: 30% 80%;
-    } */
-    /* #divBackground {
-        background-color: rgba(255, 228, 196, 0.5);
-        height: 100%; */
+    }
 
+    #divBackground {
+        background-color: rgba(255, 228, 196, 0.5);
+        height: 100%;
+    } */
 
     nav {
         position: fixed;
@@ -191,12 +316,11 @@ nav img {
 
     .tagline {
         display: flex;
-        margin-top: 40px;
+        margin: 40px;
         justify-content: center;
         font-size: 50px;
         font-weight: bolder;
         text-align: center;
-
     }
 
 
@@ -204,9 +328,8 @@ nav img {
     .fitnessPhotos {
         display: flex;
         justify-content: space-evenly;
-        position: absolute;
+        position: relative;
         width: 100%;
-        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
         margin-bottom: 10px;
@@ -219,53 +342,49 @@ nav img {
 
 
 
+
+
+
+
+
+    /* ==================== Sign In ==================== */
+
+    #signInFields input {
+        width: 50%;
+    }
+
+
+
+
+
+
+
+    /* ==================== Training Log ==================== */
+
+
+
+    .exercise .SRL {
+        margin: 5px
+    }
+
+    .exerciseName {
+        width: 30%;
+    }
+
+    .SRL {
+        width: 10%;
+    }
+
+
+
+
 }
 
 
 
 
-/* ==================== Landing Page ==================== */
 
-
-
-
-.exercise .SRL {
-    margin: 5px
-}
-
-.exerciseName {
-    width: 200px;
-
-
-}
-
-.SRL {
-    width: 30px;
-}
-
-.socialDisplay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.socialsDiv {
-    display: flex;
-    align-items: center;
-
-    width: 60%;
-    border: 1px black solid;
-    margin-top: 40px;
-    padding: 10px;
-    flex-direction: column;
-}
-
-table {
-    width: 75%;
-
-
-}
+    
 
 
 /* @media screen and (max-width: 500px;) {

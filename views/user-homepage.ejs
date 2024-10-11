@@ -1,25 +1,28 @@
 <%- include("../views/partials/header.ejs") %>
     <%- include("../views/partials/nav.ejs") %>
 
-<body>
-    <h1> USER HOMEPAGE</h1>
 
-    <h2>Hello <%=user.username%></h2>
+    <h1 class="headerTitle"> USER HOMEPAGE</h1>
 
+    <div class="flexContainer" id="userHomepage">
 
-    <form action="/user/sessions" method="GET">
-        <button type="submit">Training</button>
-    </form>
-
-    <form action="/user/index" method="GET">
-        <button type="submit">Socials</button>
-    </form>
-
-
-
-    <form action="/auth/sign-out" method="GET">
-        <button type="submit">Sign OUT</button>
-    </form>
+        <h2>Hello <%=user.username%></h2>
+        
+        
+        <form action="/user/sessions" method="GET" class="userForm">
+            <button type="submit" class="landingButton">Training</button>
+        </form>
+        
+        <form action="/user/index" method="GET" class="userForm">
+            <button type="submit" class="landingButton">Socials</button>
+        </form>
+        
+        
+        
+        <!-- <form action="/auth/sign-out" method="GET" class="userForm">
+            <button type="submit" class="landingButton">Sign OUT</button>
+        </form> -->
+    </div>
 
 </body>
 </html>
