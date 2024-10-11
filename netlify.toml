@@ -5,8 +5,8 @@
 
 # Allow direct access to static images
 [[redirects]]
-  from = "/images/*"
-  to = "/public/images/:splat"
+  from = "/Images/*"
+  to = "/public/Images/:splat"
   status = 200
 
 # Catch-all redirect for API calls
