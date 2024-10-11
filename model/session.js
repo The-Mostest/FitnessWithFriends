@@ -16,7 +16,7 @@ const exerciseSchema = new mongoose.Schema({
 
 const commentSchema = new mongoose.Schema({
     text: String,
-    user: { type: mongoose.Types.ObjectId, ref: 'User' }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 },{
     timestamps: true,
 })
@@ -28,7 +28,7 @@ const commentSchema = new mongoose.Schema({
 // * ===== Session Schema
 const sessionSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }, 
     exercises: [exerciseSchema],
