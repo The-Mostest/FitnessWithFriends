@@ -15,6 +15,16 @@ html {
 }
 
 
+ .fourofour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+
 /* ==================== Landing Page ==================== */
 nav {
     z-index: 5;
@@ -107,7 +117,7 @@ nav img {
 
 
 .howToPara {
-    width:50%;
+    width: 50%;
 
     margin-top: 30px;
 }
@@ -204,7 +214,9 @@ input {
     flex-direction: column;
     margin-top: 40px;
 }
-
+ hr {
+    display: none;
+ }
 .socialsDiv {
     display: flex;
     align-items: center;
@@ -212,6 +224,8 @@ input {
     padding: 10px;
     flex-direction: column;
     width: 50%;
+    margin-bottom: 1%;
+
 }
 
 table {
@@ -266,6 +280,7 @@ table {
     margin-top: 5%;
     row-gap: 10px;
 }
+
 .headerText h1 {
     margin-bottom: 50px;
 }
@@ -298,10 +313,6 @@ table {
         height: 1vh;
     }
 
-    .fitnessPhotos {
-        visibility: hidden;
-        display: none;
-    }
 
     /* 
     #backgroundImg {
@@ -391,28 +402,23 @@ table {
 
 
     .fitnessPhotos {
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-bottom: 10px;
+        display: none;
+
     }
 
-    .fitnessCommunity {
+    /* .fitnessCommunity {
         width: 30%;
         height: 250px;
-    }
+    } */
 
 
 
     .howToPara {
         margin-top: 50px;
-        width:80%;
+        width: 80%;
         text-align: justify;
     }
-    
+
 
 
 
@@ -438,32 +444,32 @@ table {
     }
 
     .exerciseName {
-        width: 30%; 
+        width: 30%;
     }
 
     .SRL {
         width: 10%;
     }
 
-    #editBut h3{
+    #editBut h3 {
         margin: 0;
     }
 
 
-    
-    
-    
-    
+
+
+
+
     /* ==================== Socials ==================== */
     .headerText {
         text-align: center;
     }
-    
+
     .socialsDiv {
         width: 90%;
         margin-bottom: 5%;
     }
-    
+
     .socialsDiv table {
         width: 80%;
     }
@@ -471,21 +477,87 @@ table {
     .sessionDetails {
         margin-top: 5%;
     }
-    
+
     .sessionDetails strong {
         position: relative;
         right: 70px;
     }
-    
+
     .sessionDetails small {
         position: relative;
         left: 70px;
     }
-    
+
     .everythingSocial {
         height: 50%;
         margin-bottom: 100px;
     }
+
     /* @media screen and (max-width: 500px;) {
         } */
-        }
+
+}
+
+
+
+/* ==================== Smaller Iphone ==================== */
+@media screen and (max-width: 400px) {
+
+    html {
+        height: 100vh;
+    }
+
+    .siteText {
+        margin-top: 0;
+    }
+
+    #divBackground {
+        height: 100vh;
+    }
+
+    .siteContent {
+        margin-top: 10px;
+    }
+
+
+    .tagline {
+        font-size: larger
+    }
+
+
+
+
+    #userHomepage {
+        row-gap: 0px;
+    }
+
+    .howToPara {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+
+
+    .socialDisplay {
+        margin-top: 5px;
+        justify-content: none;
+        margin-bottom: 100px;
+
+    }
+
+    .socialsDiv {
+        margin-bottom: 65px;
+    }
+
+
+
+    hr {
+        margin: 0 auto;
+        width: 50%;
+    }
+
+
+
+
+
+}
